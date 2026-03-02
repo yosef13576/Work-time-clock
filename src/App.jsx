@@ -76,6 +76,17 @@ function App() {
     }
   }
 
+  const cancelTimer = () => {
+    if (!confirm('לבטל את הסשן הנוכחי? הזמן לא יישמר.')) return
+    clearInterval(intervalRef.current)
+    setIsRunning(false)
+    setIsPaused(false)
+    setElapsedMs(0)
+    elapsedBeforePauseRef.current = 0
+    setCurrentNote('')
+    setSessionStartTime(null)
+  }
+
   const stopTimer = () => {
     clearInterval(intervalRef.current)
     const client = clients.find(c => c.id === selectedClientId)
@@ -276,6 +287,9 @@ function App() {
                 </button>
                 <button className="btn btn-stop" onClick={stopTimer}>
                   ⏹ סיים ושמור
+                </button>
+                <button className="btn btn-cancel" onClick={cancelTimer}>
+                  ✕ בטל סשן
                 </button>
               </>
             )}

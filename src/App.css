@@ -560,6 +560,18 @@ tfoot td {
   background: var(--danger-dark);
 }
 
+.btn-cancel {
+  background: transparent;
+  color: var(--text-secondary);
+  border: 1px solid var(--border);
+  padding: 0.7rem 1.5rem;
+}
+
+.btn-cancel:hover {
+  color: var(--danger);
+  border-color: var(--danger);
+}
+
 .btn-export {
   background: #0d9488;
   color: white;
